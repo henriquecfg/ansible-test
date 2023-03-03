@@ -16,4 +16,4 @@
         var: output1
 
     - debug:
-      var: output2
+        var: output2
