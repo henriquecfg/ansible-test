@@ -2,14 +2,16 @@
 - name: Playbook de ping 
   hosts: all
   tasks:
-    - name: Example from an Ansible Playbook
-      ansible.netcommon.net_ping:
-        dest: 8.8.8.8
+    - name: ping test
+      shell: ping -c 1 -w 2 {{ DNS1 }}
+      delegate_to: localhost
+      ignore_errors: true
       register: output1
 
-    - name: Example from an Ansible Playbook
-      ansible.netcommon.net_ping:
-        dest: 'google.com'
+    - name: ping test
+      shell: ping -c 1 -w 2 {{ DNS2 }}
+      delegate_to: localhost
+      ignore_errors: true
       register: output2
 
     - debug:
