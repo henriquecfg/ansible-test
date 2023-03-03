@@ -3,13 +3,13 @@
   hosts: all
   tasks:
     - name: ping test
-      shell: ping -c 1 -w 2 {{ DNS1 }}
+      raw: ping -c 1 -w 2 {{ DNS1 }}
       delegate_to: localhost
       ignore_errors: true
       register: output1
 
     - name: ping test
-      shell: ping -c 1 -w 2 {{ DNS2 }}
+      raw: ping -c 1 -w 2 {{ DNS2 }}
       delegate_to: localhost
       ignore_errors: true
       register: output2
