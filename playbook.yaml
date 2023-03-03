@@ -1,0 +1,18 @@
+---
+hosts: all
+tasks:
+  - name: Example from an Ansible Playbook
+    ansible.netcommon.net_ping:
+      dest: 8.8.8.8
+    register: output1
+
+  - name: Example from an Ansible Playbook
+    ansible.netcommon.net_ping:
+      dest: 'google.com'
+    register: output2
+
+  - debug:
+      var: output1
+
+  - debug:
+      var: output2
