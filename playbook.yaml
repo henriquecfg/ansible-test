@@ -14,8 +14,8 @@
       ignore_errors: true
       register: output2
 
-    - debug:
-        var: output1
+    - set_fact:
+        output: "{{ 'ping -c 1 -w 2' + DNS1 + '\n' + output1.stdout + '\n' + 'ping -c 1 -w 2' + DNS2 + '\n' + output2.stdout}}"
 
     - debug:
-        var: output2
+        var: output
