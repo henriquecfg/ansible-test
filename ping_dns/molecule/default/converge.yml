@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include henrique.ping_dns"
+      include_role:
+        name: "henrique.ping_dns"

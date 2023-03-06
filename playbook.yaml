@@ -19,3 +19,6 @@
 
     - debug:
         var: output
+
+    - pause:
+        minutes: 2
