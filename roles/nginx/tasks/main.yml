@@ -1,0 +1,31 @@
+---
+- name: Install nginx
+  ansible.builtin.apt: 
+    name: nginx
+    update_cache: true
+
+- name: Start nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    use: service
+
+- name: Copy nginx config file
+  ansible.builtin.copy: 
+    src: files/nginx.conf 
+    dest: /etc/nginx/sites-available/default
+    mode: 0644
+
+- name: Enable configuration
+  ansible.builtin.file:
+    dest: /etc/nginx/sites-enabled/default
+    src: /etc/nginx/sites-available/default
+    state: link
+  notify: Restart nginx
+
+- name: Copy index.html
+  ansible.builtin.template: 
+    src: templates/index.html.j2 
+    dest: /usr/share/nginx/html/index.html
+    mode: 0644
+  notify: Restart nginx

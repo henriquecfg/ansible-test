@@ -1,0 +1,9 @@
+---
+- name: Playbook de ping 
+  hosts: all
+  tasks:
+    
+    - local_action: copy content="help" dest=/tmp/test.txt
+
+    - pause:
+        minutes: 2

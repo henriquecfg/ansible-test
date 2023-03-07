@@ -1,0 +1,7 @@
+- name: Prepare
+  hosts: all
+  pre_tasks:
+    - name: Install lsof
+      apt:
+        name: lsof
+        update_cache: yes
