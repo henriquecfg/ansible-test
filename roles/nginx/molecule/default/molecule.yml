@@ -2,16 +2,13 @@
 dependency:
   name: galaxy
 driver:
-  name: podman
+  name: docker
 platforms:
   - name: henrique-nginx
-    image: "docker.io/geerlingguy/docker-ubuntu2204-ansible:latest"
+    image: "geerlingguy/docker-ubuntu2204-ansible:latest"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-    cap_add:
-        - SYS_ADMIN
-        - SYS_TIME
     pre_build_image: true
 provisioner:
   name: ansible

@@ -1,9 +1,9 @@
 ---
-- name: Playbook de ping 
-  hosts: all
+- name: Local action test 
+  hosts: vms
   tasks:
     
-    - local_action: copy content="help" dest=/tmp/test.txt
+    - local_action: copy content="test" dest=/tmp/test.txt
 
     - pause:
         minutes: 2
